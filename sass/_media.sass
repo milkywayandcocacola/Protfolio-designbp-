@@ -1,0 +1,156 @@
+
+@media (max-width:1199px)
+	html
+		font-size: 8px
+	.portfolio
+		&__content
+			height: 620px
+			&__item
+				width: 300px
+				height: 300px
+				margin: 5px	
+@media (max-width:991px)
+	.menu
+		&__icons
+			&__item
+				a
+					padding: 0 1rem	
+	.portfolio
+		&__content
+			height: 680px
+			&__item
+				width: 220px
+				height: 220px
+				margin: 5px
+				filter: grayscale(20%)
+				&:hover
+					cursor: pointer
+					transform: translate(-1px, -2px)
+					box-shadow: 6px 10px 30px -10px rgba($dark-color, .5)
+					filter: none
+					.portfolio__content__item__description
+							bottom: 0
+				&__description
+					min-height: 60px
+					bottom: 0px
+					h5
+						font-size: 1.5rem
+					p
+						margin-top: -15px
+						visibility: hidden
+	.footer
+		&__content
+			&__center
+				&__menu
+					text-align: right
+	.portfolio-active
+		&__window
+			&__content
+				&__description
+					left: 3rem
+					top: 3rem
+				&__show
+					top: 18rem
+					right: 3rem
+@media (max-width:767px)
+	.menu
+		&__logo
+			position: relative
+		&__list
+			&__btn
+				position: absolute
+				right: 0
+				top: 50%
+				transform: translateY(-50%)
+				border: none
+				background-color: transparent
+				display: block
+				font-size: 3rem
+				color: $dark-color
+				&:hover
+					color: $light-color
+			&_idle
+				display: none
+		&_active
+			.menu
+				&__list
+					&__btn
+						&:hover
+							color: $active-text-color
+	.about
+		&__content
+			&__left
+				&__img
+					min-height: 200px
+			&__right
+				margin-top: 5rem
+				text-align: center
+				p
+					font-size: 2.2rem
+	.contact
+		&__list
+			i
+			a
+				font-size: 1.5rem
+@media (max-width:575px)
+	html
+		font-size: 7px
+	.section-header
+		&__text
+			h3
+				font-size: 3.6rem
+	.main-section
+		&__text
+			h1
+				font-size: 5rem
+				line-height: 1
+				margin-bottom: 2rem
+			h2
+				font-size: 3.5rem
+		&__image
+			top: 15%
+	.contact
+		&__form
+			&__wrap
+				padding: 7rem 5rem
+		&__list
+			display: none
+	.call
+		&__window
+			&__content
+				p
+					font-size: 2.4rem
+				.popup-button
+					font-size: 2rem
+					margin-top: 0rem
+				.call-close-btn
+					width: 25px
+					height: 25px
+					padding: 0
+					font-size: 17px
+		&__form
+			margin: 2rem auto
+	.portfolio-active__window
+		width: 98vw
+		left: 50%
+		transform: translate(-50%,-50%)
+		&__close-btn
+			width: 25px
+			height: 25px
+			padding: 0
+			font-size: 20px
+	.footer
+		&__content
+			p
+				font-size: 1.6rem
+				margin-bottom: 1rem
+			a
+				font-size: 1.8rem
+				margin: 0 0 3rem 0
+			span
+				font-size: 2.4rem	
+				a
+					font-size: 2.4rem	
+					line-height: 1
+					transition: all .3s ease-in-out
+

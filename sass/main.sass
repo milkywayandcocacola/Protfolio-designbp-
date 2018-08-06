@@ -1,0 +1,603 @@
+@import "colors"
+@import "fonts"
+/* Mixins */
+@mixin reg () 
+	font-family: OpenSans-Regular, sans-serif
+@mixin bold ()
+	font-family: OpenSans-ExtraBold, sans-serif
+//common styles
+html
+	font-size: 10px
+*
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+body
+	@include reg ()
+	outline: none
+	position: relative
+button, .menu
+	user-select: none
+.button
+	@include bold ()
+	font-size: 2.4rem
+	text-transform: uppercase
+	color: $white-color
+	display: inline-block
+	background:  $dark-color
+	box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35)
+	padding: 10px 20px
+	border: none
+	transition: all 0.45s ease-in-out
+	&:hover
+		box-shadow: 2px 5px 9px 0px rgba(0, 0, 0, 0.45)
+		background: $active-text-color
+		p
+			color: $white-color
+	p
+		@include bold ()
+		color: $light-color
+		text-transform: uppercase
+		font-size: 2.4rem
+		margin: 0
+.section-header
+	&__text
+		width: 100%
+		text-align: center
+		@include bold ()
+		margin-top: 10rem
+		position: relative
+		h3
+			text-transform: uppercase
+			font-size: 4.8rem
+			line-height: 1
+			margin: 0
+			display: inline-block
+			padding: 0 4rem	
+			background: $white-color
+		&:before
+			z-index: -1
+			content: ""
+			display: block
+			background: $active-color
+			position: absolute
+			height: 5px
+			width: 100%
+			top: 50%
+			transform: translateY(-50%)
+//main menu style
+.main-menu
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 900
+	&_dark
+		background-color: $dark-color
+		height: 100vh
+.menu
+	width: 100vw
+	background: $active-color
+	color: $dark-color
+	height: 7rem
+	line-height: 7rem
+	text-align: center
+	transition: all .2s ease-in
+	&__logo
+		a
+			text-decoration: none
+			p
+				margin: 0
+				@include bold ()
+				color: $dark-color
+				font-size: 2.8rem
+				span
+					color: $light-color
+	&__list
+		&__btn
+			display: none
+		ul
+			margin-bottom: 0
+		&__item
+			height: 7rem
+			list-style: none
+			display: inline-block
+			padding: 0 2.5rem
+			a
+				position: relative
+				color: $dark-color
+				text-decoration: none
+				@include bold ()
+				font-size: 2rem
+				&:after
+					content: ''
+					display: block
+					position: absolute
+					bottom: -5px
+					left: 50%
+					width: 0
+					height: 3px
+					background-color: $light-color
+					transition: width 0.3s ease-in-out
+					transform: translateX(-50%)
+				&:hover:after,a:focus:after
+					width: 100%
+	&__icons
+		padding: 0
+		height: 7rem
+		display: flex
+		justify-content: space-around
+		ul
+			margin: 0
+			padding: 0
+		&__item
+			list-style: none
+			display: inline-flex
+			a
+				@include bold ()
+				margin: 0
+				padding: 0 14px
+				line-height: normal
+				font-size: 2rem
+				color: $dark-color
+				text-decoration: none
+				transition: all 0.2s ease-in-out
+				&:hover
+					color: $light-color
+	&_active
+			background: $light-color
+			box-shadow: 1px 3px 7px 0px rgba(0, 0, 0, 0.15)
+			.menu
+				&__logo
+					p
+						span
+							color: $active-text-color
+				&__list
+					&__item
+						a
+							&:after
+								background: $active-text-color
+				&__icons__item
+					a:hover
+						color: $active-text-color
+	&_min
+		display: none
+		z-index: 900
+		background-color: $dark-color
+		ul
+			height: 75vh
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			li
+				width: 100%
+				height: 6rem
+				text-align: right
+				list-style: none
+				a
+					@include bold ()
+					text-transform: uppercase
+					text-decoration: none
+					font-size: 2.5rem
+					color: $light-color
+		&_active
+			display: block
+			
+		
+//main section style
+.main-section
+	height: 100vh
+	background: $active-color
+	position: relative
+	overflow: hidden
+	&__text
+		@include bold ()
+		display: block
+		h1
+			text-transform: uppercase
+			color: $white-color
+			font-size: 7.2rem
+		h2
+			color: $dark-color
+			font-size: 4.8rem
+			line-height: 1
+		&__wrap
+			z-index: 2
+			margin-top: 40vh
+	&__button
+		margin-top: 4rem
+		&:hover
+			background-color: $light-color
+			p
+				color: $dark-color
+	&__image
+		position: absolute
+		right: -42px
+		top: 25%
+		display: block
+		background: transparent url(../img/laptop.png) center no-repeat
+		background-size: contain
+		width: 96rem
+		height: 67rem
+		&__wrap
+			display: block
+			background: #000
+//about section style
+.about
+	&__content
+		margin: 10rem 0 5rem 0
+		&__left
+			&__img
+				display: block
+				width: 100%
+				height: 100%
+				background: url(../img/left_photo.png) center no-repeat
+				background-size: contain
+				min-height: 100px
+		&__right
+			h4
+				text-transform: uppercase
+				font-size: 3.6rem
+				@include bold ()
+				margin: 0 0 3rem 0
+			p
+				font-size: 2rem
+				line-height: 1.2
+				margin: 0 0 2rem 0
+//portfolio section style
+.portfolio
+	&__content
+		margin-top: 4rem
+		overflow: hidden
+		display: flex
+		justify-content: center
+		flex-wrap: wrap
+		height: 730px
+		transition: all 0.3s ease-in-out
+		&__item
+			position: relative
+			display: inline-block
+			width: 350px
+			height: 350px
+			margin: 10px
+			padding: 1px
+			background: $light-color
+			box-shadow: 8px 8px 20px -15px rgba($dark-color, .5)
+			transition: all 0.2s ease
+			overflow: hidden
+			filter: grayscale(100%)
+			&:hover
+				cursor: pointer
+				transform: translate(-1px, -2px)
+				box-shadow: 6px 10px 30px -10px rgba($dark-color, .5)
+				filter: none
+				.portfolio__content__item__description
+						bottom: 0
+			img
+				width: 100%
+			&__description
+				position: absolute
+				display: block
+				bottom: -105px
+				left: 0
+				background-color: rgba($dark-color, 0.85)
+				width: 100%
+				padding: 1rem 2.4rem
+				font-size: 1.4rem
+				line-height: 1
+				transition: all 0.25s ease-in-out
+				h5
+					text-transform: uppercase
+					@include bold ()
+					font-size: 2rem
+					color: $white-color
+				p
+					overflow: hidden
+					text-overflow: ellipsis
+					white-space: nowrap
+					height: 2rem
+					line-height: 1.3
+					color: $light-color
+					margin: 6px 0
+				span
+					@include bold ()
+					color: $active-text-color
+		&__button-wrap
+			text-align: center
+			button
+				background: $active-text-color
+				margin-top: 4rem
+				&:hover
+					background-color: $dark-color
+//contact section style
+.contact
+	&__form
+		@include bold ()
+		width: 100%
+		margin: 0 auto
+		padding-top: 25px
+		&__wrap
+			margin: 10rem	0 5rem 0
+			padding: 7rem 10rem
+			box-shadow: 0 3px 10px rgba($dark-color,.35)
+		&__button-wrap
+			text-align: center
+			&__button
+				margin-top: 1rem
+				display: inline-block
+	&__list
+		margin-bottom: 5rem
+		&__item
+			text-align: center
+			i
+				font-size: 5rem
+				color: $active-text-color
+				display: block
+				margin-bottom: 3rem
+			a
+				color: $dark-color
+				text-transform: uppercase
+				@include bold ()
+				font-size: 2rem
+				text-decoration: none
+			&:hover
+				i
+					text-shadow: 0 3px 7px rgba($dark-color,.35)
+				a
+					color: $active-text-color
+					text-shadow: 0 3px 7px rgba($dark-color,.1)
+.label-input
+	position: relative
+	display: block
+	height: 4.8rem
+	cursor: text
+	margin-bottom: 4rem
+	text-align: left
+	input
+		@include bold ()
+		position: absolute
+		bottom: 0
+		width: 100%
+		height: 0.2rem
+		padding-left: 3.2rem
+		border: 1px solid $active-text-color
+		border-radius: 2px
+		box-shadow: 0 2px 8px rgba(#000,.3)
+		transition: height .2s ease-in
+		vertical-align: bottom
+		font-size: 1.6rem
+		&:focus
+			border: none
+			height: 100%
+			outline: none
+			background-color: $white-color
+			+ label
+				transition: all .2s ease-in
+				position: absolute
+				transform: translateY(-2.5rem)
+				font-size: 1.4rem
+				color: rgba(#272727,.8) //min-text-color
+			+ label + i
+				transform: translateY(0px)
+				visibility: visible
+				transition: transform .3s ease
+		&.filled
+			border: none
+			height: 100%
+			outline: none
+			background-color: $white-color
+			+ label
+				position: absolute
+				transform: translateY(-2.5rem)
+				font-size: 1.4rem
+				color: rgba(#272727,.8) //min-text-color
+			+ label + i
+				transform: translateY(0)
+				visibility: visible
+				transition: transform .3s ease
+		+ label
+			color: $dark-color //text-color
+			font-weight: 700
+			font-size: 2rem
+      line-height: 4.8rem
+      padding-left: 0.3rem
+      transform: translateY(0)
+      transition: all .3s ease
+      pointer-events: none
+			span
+				color: $active-text-color
+			& + i
+				position: absolute
+				display: block
+				visibility: hidden
+				left: 1rem
+				transform: translateY(0.1rem)
+				color: #272727 //icon-color
+				z-index: 1
+.fa-user
+  font-size: 1.4rem
+  top: 1.7rem
+.fa-phone
+  font-size: 1.8rem
+  top: 1.6rem
+//footer style
+.footer
+	min-height: 30rem
+	background-color: $dark-color
+	&__content
+		padding-top: 4.5rem
+		p
+			text-transform: uppercase
+			font-size: 1.4rem
+			line-height: 1
+			color: rgba($light-color, .3)
+			margin-bottom: 0.5rem
+			user-select: none
+		a
+			text-transform: uppercase
+			display: block
+			text-decoration: none
+			color: $light-color
+			@include bold ()
+			font-size: 1.4rem
+			line-height: 1
+			margin: 0 0 1.5rem 0
+			transition: all .3s ease-in-out
+			&:hover
+				color: rgba($active-text-color, 0.5)
+		span
+			color: $light-color
+			text-transform: uppercase
+			font-size: 1.8rem	
+			@include reg ()
+			a
+				@include reg ()
+				font-size: 1.8rem	
+				line-height: 1
+				transition: all .3s ease-in-out
+				span
+					transition: all .3s ease-in-out
+					color: $active-text-color
+				&:hover
+					color: $active-text-color
+					span
+						color: $light-color
+		&__center
+			p
+				margin-bottom: 3rem
+			a
+				margin-bottom: 2rem
+			&__menu
+				ul
+					li
+						list-style: none
+
+//common popup style
+.popup
+	z-index: 999
+	position: fixed
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100vh
+	background-color: rgba($dark-color, 0.95)
+	&__window
+		position: fixed
+		top: 50%
+		left: 0
+		transform: translateY(-50%)
+		background-color: $light-color
+		padding: 5rem 5rem 2rem 5rem
+		text-align: center
+		border-radius: 15px
+// call popup style
+.call
+	&__window
+		&__content
+			p
+				font-size: 2.4rem
+				@include bold ()
+				text-transform: uppercase
+				color: $dark-color
+				span
+					color: $active-color
+			&__tiny-text
+				font-size: 1.8rem
+				@include bold ()
+				color: rgba($dark-color, 0.5)
+			&__line
+				margin: 0 0 1rem 0
+				display: inline-block
+				height: 1px
+				width: 80%
+				background-color: rgba($dark-color, 0.3)
+			.popup-button
+				transition: background 0.3s ease
+				margin-top: 1rem
+			.call-close-btn
+				width: 45px
+				height: 45px
+				padding: 0
+				position: absolute
+				right: 1.5rem
+				top: 1.5rem
+				border-radius: 50%
+				font-size: 30px
+				transition: transform 0.3s ease-in-out
+				transform: rotate(45deg)
+				background: $active-color
+	&__form
+		@include bold ()
+		margin: 3rem auto
+		text-align: center
+		width: 80%
+//portfolio popup
+.portfolio-active
+	&__window
+		min-height: 97vh
+		border-radius: 5px
+		width: 100%
+		left: 0
+		padding: 3rem 3rem 2rem 3rem
+		&__close-btn
+			position: absolute
+			right: 20px
+			top: 20px
+			border-radius: 50%
+			padding: 5px 15px
+			transform: rotate(45deg)
+			transition: transform 0.3s ease-in-out
+		&__content
+			&__description
+				position: absolute
+				right: 3rem
+				top: 10rem
+				text-align: left
+				min-width: 29rem
+				max-width: 29rem
+				h5
+					font-size: 2.4rem
+					@include bold ()
+					text-transform: uppercase
+					margin-bottom: 1rem
+					line-height: 1
+				p
+					font-size: 1.8rem
+					margin-bottom: 1.5rem
+					line-height: 1
+					a
+						font-size: 1.4rem
+						@include bold ()
+						text-transform: uppercase
+						text-decoration: none
+						color: $dark-color
+						&:hover
+							color: $active-color
+				span
+					font-size: 1.6rem
+					color: $active-color
+					@include bold ()
+			&__show
+				position: absolute
+				top: 2rem
+				right: 35rem
+				bottom: 2rem
+				left: 2rem
+				background: rgba($dark-color,0.01)
+				border-radius: 5px
+				margin: 0
+				overflow-y: scroll
+				box-shadow: 6px 10px 30px -10px rgba($dark-color, .2)
+				img
+					width: 100%
+.portfolio-active__window__content__show::-webkit-scrollbar
+	display: none
+
+
+
+
+
+
+
+
+@import "media"	
